@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index,follow">
-  <title>隐私政策 - 行动收件箱 ActionInbox</title>
-  <meta name="description" content="行动收件箱 ActionInbox 的隐私政策，说明本地存储、iCloud 同步、权限使用和用户选择。">
+  <title>隐私政策 - 知行待办 ActionInbox</title>
+  <meta name="description" content="知行待办 ActionInbox 的隐私政策，说明本地存储、iCloud 同步、微信同步、AI 标签建议、AI 链接笔记、权限使用和用户选择。">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,20 +13,22 @@
     <article class="document">
       <header class="doc-header">
         <p class="eyebrow">Privacy Policy</p>
-        <h1>行动收件箱隐私政策</h1>
-        <p class="lead">本政策说明行动收件箱如何处理你主动输入、主动选择或通过 iOS 系统分享菜单提交的内容。</p>
-        <p class="meta">生效日期：2026 年 5 月 4 日</p>
+        <h1>知行待办隐私政策</h1>
+        <p class="lead">本政策说明知行待办如何处理你主动输入、主动选择、主动开启或通过 iOS 系统分享菜单提交的内容。</p>
+        <p class="meta">生效日期：2026 年 6 月 10 日</p>
       </header>
 
       <section>
         <h2>1. 我们处理哪些数据</h2>
-        <p>行动收件箱用于保存你主动输入、主动选择或通过 iOS 系统分享菜单提交的文本、链接和图片。App 不会后台读取屏幕，不会监听其他 App，也不会在你未操作时自动收集内容。</p>
+        <p>知行待办用于保存你主动输入、主动选择或通过 iOS 系统分享菜单提交的文本、链接和图片。分享链接时，分享扩展会短时访问该链接，用于读取网页标题和来源渠道；读取失败不会影响本地保存。App 不会后台读取屏幕，不会监听其他 App，也不会在你未操作时自动收集内容。</p>
+        <p>只有当你在设置中开启“启动时检查剪贴板”后，App 才会在启动时检查剪贴板里的文本、链接或图片，并放入创建面板等待你确认保存；关闭该开关时不会读取剪贴板。</p>
       </section>
 
       <section>
         <h2>2. 数据保存位置</h2>
         <p>默认情况下，任务、图片附件和同步状态保存在你的设备本地，并通过 App Group 共享给主 App 和分享扩展使用。</p>
-        <p>当你主动开启 iCloud 云同步后，任务和图片附件会通过 Apple CloudKit 写入你的 iCloud 私有数据库，用于登录同一 Apple ID 的设备间同步。当前版本不会把这些内容上传到我们的自有服务器。</p>
+        <p>当你主动开启 iCloud 云同步后，任务和图片附件会通过 Apple CloudKit 写入你的 iCloud 私有数据库，用于登录同一 Apple ID 的设备间同步。单独使用 iCloud 云同步时，这些内容不会上传到我们的自有服务器。</p>
+        <p>当你主动开启微信服务号同步后，任务内容、提醒时间和微信 OpenID 绑定关系会写入你配置的知行待办微信同步服务，用于在微信服务号聊天里新建和查看任务。</p>
       </section>
 
       <section>
@@ -37,30 +39,32 @@
           <li><strong>通知：</strong>用于任务提醒和跟进提醒，不用于广告或营销推送。</li>
           <li><strong>iCloud / CloudKit：</strong>仅在你开启 iCloud 云同步后使用，用于在你的 Apple 设备间同步任务和图片附件。</li>
           <li><strong>分享扩展：</strong>只处理你从其他 App 主动分享进来的内容，不会后台监听其他 App。</li>
+          <li><strong>剪贴板：</strong>仅在你开启“启动时检查剪贴板”或在链接笔记面板主动使用粘贴识别时读取。</li>
         </ul>
       </section>
 
       <section>
         <h2>4. 第三方服务</h2>
-        <p>当前版本不接入第三方统计 SDK，不接入广告 SDK，不接入第三方支付 SDK，也不使用第三方 AI 云端服务处理你的任务内容。</p>
-        <p>如果未来版本加入账号、订阅、支付、云端 AI 或第三方分析能力，我们会在功能上线前更新本隐私政策，并在 App 中提供相应说明。</p>
+        <p>当前版本不接入第三方统计 SDK，不接入广告 SDK，不接入第三方支付 SDK。Apple ID 登录、AI 标签建议、AI 链接笔记和微信服务号同步只在你主动使用或开启后工作。</p>
+        <p>当你主动开启“AI 标签建议”后，App 会把你主动输入、分享或图片 OCR 后的文本发送到你配置的知行待办服务端，用于生成标签建议；不会上传图片原图，服务失败时会回退到本地规则。</p>
+        <p>当你主动生成 AI 链接笔记后，链接、公开页面内容、转写文本和生成结果会发送到你配置的知行待办链接笔记服务，以及该服务配置的 AI/ASR 服务，用于生成文字稿、摘要、标签和启发内容；付费内容、需要登录、限制访问的网站和直播回放不支持处理。</p>
       </section>
 
       <section>
         <h2>5. 你的选择</h2>
-        <p>你可以在 App 设置页关闭 iCloud 云同步。关闭后，新数据不会继续通过 CloudKit 同步，但已存在于你 iCloud 私有数据库中的历史同步数据仍由你的 Apple ID 和 iCloud 设置管理。</p>
-        <p>你可以在 iOS 系统设置中管理行动收件箱的通知、照片、麦克风和语音识别权限。</p>
+        <p>你可以在 App 设置页关闭 iCloud 云同步、微信服务号同步、AI 标签建议和启动时检查剪贴板。关闭后，对应能力不会继续处理新数据。</p>
+        <p>你可以在 iOS 系统设置中管理知行待办的通知、照片、麦克风、语音识别、日历和本地网络权限。</p>
         <p>你可以在 App 内删除单条任务。删除会在本地生效；如果 iCloud 同步已开启，删除状态会随下一次同步写入 CloudKit。</p>
       </section>
 
       <section>
         <h2>6. 数据安全</h2>
-        <p>行动收件箱采用本地优先设计。iCloud 同步使用 Apple CloudKit 的私有数据库能力。请注意，任何本地或云端数据都无法保证绝对安全，我们会尽量减少不必要的数据处理，并只保留实现核心功能所需的数据。</p>
+        <p>知行待办采用本地优先设计。iCloud 同步使用 Apple CloudKit 的私有数据库能力。请注意，任何本地或云端数据都无法保证绝对安全，我们会尽量减少不必要的数据处理，并只保留实现核心功能所需的数据。</p>
       </section>
 
       <section>
         <h2>7. 儿童隐私</h2>
-        <p>行动收件箱不是面向儿童设计的 App。我们不会有意收集儿童个人信息。</p>
+        <p>知行待办不是面向儿童设计的 App。我们不会有意收集儿童个人信息。</p>
       </section>
 
       <section>
