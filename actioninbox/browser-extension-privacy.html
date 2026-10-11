@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>知行待办浏览器插件 · 隐私说明</title><style>:root {
+  color-scheme: light dark;
+  /* AppThemeSettings.blueLight / blueDark: the App's blue appearance family. */
+  --bg: #f4f7fb; --surface: #fff; --raised:#e8eef7; --input:#f8fafd;
+  --text: #111827; --muted: #637083; --tertiary:#9aa5b5; --line: #d7dee8;
+  --accent: #007aff; --accent-ink: #fff; --soft: #e8eef7; --danger: #ff453a;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", sans-serif;
+  font-size: 15px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111111; --surface:#242424; --raised:#303030; --input:#222222; --text:#fcfcfc; --muted:#a8a8a8; --tertiary:#707070; --line:#353535; --accent:#0169cc; --soft:#242424; --danger:#ef4444; }
+}
+</style><style>body{margin:0;background:var(--bg);color:var(--text)}main{max-width:760px;margin:48px auto;padding:24px}h1{font-size:30px;line-height:1.35}h2{margin-top:32px;font-size:20px}p,li{line-height:1.85;color:var(--muted)}a{color:var(--accent)}time{color:var(--muted);font-size:14px}</style></head><body><main>
+<h1>知行待办浏览器插件隐私说明</h1><time datetime="2026-10-12">版本日期：2026 年 10 月 12 日</time>
+<p>本说明适用于知行待办 Chrome 扩展及其浏览器 AI 服务。核心用途是记录用户主动选择的网页内容与想法，按需分析，并由用户确认发送到知行待办。</p>
+<h2>1. 你主动选择的内容</h2><p>普通聊天使用你发送的问题与必要的对话历史。点击“引用当前页”“总结当前页”“提取待办”、右键分析或“问 AI”后，才读取对应正文或选中文字。引用卡显示内容范围；每个会话固定一个网页快照，切换标签不替换来源。</p><p>启用划词浮窗需要可选的 HTTP/HTTPS 网页权限。插件在本机读取顶层网页文本，以恢复你保存的划线；网站停用或总开关关闭后移除对应标记。网页切换不会自动发起 AI 分析。输入框、编辑区、PDF、浏览器内部页及嵌套 iframe 不在首版支持范围。</p>
+<h2>2. 本机保存</h2><p>摘录原句、想法、来源标题及完整 URL、定位信息、时间、发送状态、聊天、草稿和引用快照保存在此浏览器的 chrome.storage.local。浮窗绑定保存在 chrome.storage.session。访问口令也只保存在本机扩展可信页面可访问的存储中，不进入 Chrome 同步。</p><p>网页脚本只获得本页原句、定位线索和标记状态；想法、聊天和访问口令由扩展自己的页面处理。插件没有云端历史同步，也不为广告、画像或分析统计读取浏览活动。</p>
+<h2>3. AI 服务与第三方</h2><p>发送 AI 请求时，访问口令经 HTTPS 发往知行待办浏览器 AI 服务（actioninbox-browser-ai.netlify.app），用于验证访问资格。问题、必要历史以及你已主动引用的网页标题、URL 与正文或选区，由该服务发送给 DeepSeek 生成回答。单独划线、写想法和截图不会发送给 AI。</p><p>知行待办代理代码不主动持久化聊天正文。Netlify 承载服务并处理网络请求及限流所需的技术信息（例如 IP）；DeepSeek 处理收到的 AI 输入及生成回答。第三方服务的数据留存和处理按其服务约定执行，本机删除历史不代表撤回已经处理的 AI 请求。</p><p>维护者仅将这些数据用于已说明的记录、分析、保存及服务安全功能，不出售数据，不用于个性化广告，不向无关第三方转移。信息使用遵守 Chrome Web Store 用户数据政策，包括 Limited Use 限制。</p><p>第三方说明：<a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">Netlify 隐私政策</a> · <a href="https://platform.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek 开放平台</a>。</p>
+<h2>4. 发送到知行待办 Mac</h2><p>点击保存或“发送到知行待办”后，确认的文本、原文、想法、来源及用户主动添加的截图，通过本机 Native Host 交给已绑定的知行待办 Mac App。截图仅在你点击添加时获取当前可见区域。连接组件不会自行升级 App。</p><p>Mac App 中的保存及你主动开启的 iCloud 等同步能力适用<a href="https://weiya9511.github.io/public/actioninbox/privacy.html" target="_blank" rel="noopener noreferrer">知行待办 App 隐私政策</a>。“已发送”表示连接组件已接收并发起导入，实际入库请在 App 中核对。</p>
+<h2>5. 删除与关闭</h2><ul><li>在“历史”删除单个或全部对话、摘录；删除摘录移除本机记录与划线，不删除已发送的 App 笔记。</li><li>删除历史不会删除访问口令。可在设置中替换口令，卸载扩展可移除其本机口令；维护者可撤销独立测试口令。</li><li>关闭划词浮窗可撤销可选网站权限；也可单独停用网站。已保存的本机记录保留，仍可手动删除。</li><li>卸载扩展会移除此扩展的本机存储。已进入 App 或已发出的 AI 请求不随卸载撤回。</li></ul>
+<h2>6. 安全与更新</h2><p>AI 请求使用 HTTPS，模型密钥保留在服务端；回答使用经净化的 Markdown，不自动加载回答中的远程图片。存储容量不足、断网、停止生成或保存失败时，界面提示恢复方式，不自动删除历史或重发未知结果。</p><p>处理方式有重要变化时，更新本说明并提供相应提示。</p><h2>7. 联系我们</h2><p>支持邮箱：<a href="mailto:1908716221@qq.com">1908716221@qq.com</a>。请勿在反馈邮件中发送访问口令或不必要的私人网页内容。</p>
+</main></body></html>
