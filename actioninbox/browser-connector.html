@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>知行待办 · Mac 连接组件</title>
+  <meta name="description" content="知行待办浏览器扩展的可选 Mac 连接组件：安装、绑定 App 与失败恢复说明。">
+  <style>
+    :root{color-scheme:light dark;--bg:#f4f7fb;--surface:#fff;--text:#111827;--muted:#637083;--line:#d7dee8;--accent:#007aff;--code:#e8eef7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC",sans-serif}
+    @media(prefers-color-scheme:dark){:root{--bg:#111;--surface:#242424;--text:#fcfcfc;--muted:#a8a8a8;--line:#353535;--accent:#0169cc;--code:#303030}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);line-height:1.75}main{max-width:840px;margin:56px auto;padding:0 24px 40px}
+    h1{font-size:32px;line-height:1.3;margin:8px 0 16px}h2{font-size:21px;margin:0 0 12px}h3{font-size:17px;margin:24px 0 8px}p{margin:10px 0;color:var(--muted)}
+    a{color:var(--accent);text-underline-offset:3px}.eyebrow{font-size:14px}.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:24px 0}
+    .download{display:inline-block;background:var(--accent);color:white;text-decoration:none;padding:11px 20px;border-radius:12px;font-weight:600;margin:10px 0}
+    .details{font-size:14px}.hash,code{overflow-wrap:anywhere}code{font-size:13px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--code);padding:16px;border-radius:12px;line-height:1.65}
+    li{margin:8px 0}ul,ol{padding-left:24px}.warning{border-left:3px solid var(--accent);padding-left:14px}footer{font-size:13px;color:var(--muted)}
+    @media(max-width:540px){main{margin:28px auto;padding:0 18px 24px}h1{font-size:27px}.card{padding:20px}}
+  </style>
+</head>
+<body><main>
+  <p class="eyebrow">知行待办 · 私密测试</p>
+  <h1>把网页记录，送到 Mac。</h1>
+  <p>选中的原文、写下的想法和网页来源，点击发送后保存到知行待办。只在浏览器里划线和记想法，无需安装这个组件。</p>
+  <section class="card" aria-labelledby="download-title">
+    <h2 id="download-title">Mac 连接组件</h2>
+    <p>适用于 Apple Silicon（M 系列芯片）、macOS 13 或更新版本及 Google Chrome。需要先安装知行待办 Mac App。</p>
+    <a class="download" href="downloads/actioninbox-mac-connector-0.3.1-arm64.zip" download>下载 Mac 连接组件</a>
+    <p class="details">0.3.1 测试包 · arm64 · Developer ID 签名与 Apple 公证已完成<br>本机文字、想法、完整来源及截图接收已验证；另一台 Mac 尚待验收，不提供 Intel 版本。</p>
+    <p class="details">SHA-256：<br><code class="hash">d793542e91fc83c0ee433f2ab9a244eebc9d60039ee3755adbafec6414464408</code><br><a href="downloads/actioninbox-mac-connector-0.3.1-arm64.zip.sha256" download>下载校验文件</a></p>
+    <p class="warning">浏览器扩展目前处于商店草稿阶段，尚未提交审核或发布。商店安装入口将在私密版审核通过、发布后向受邀测试者提供。此下载仅包含连接组件，不包含 Mac App 或浏览器扩展。</p>
+  </section>
+  <section class="card" aria-labelledby="install-title">
+    <h2 id="install-title">安装与绑定</h2>
+    <p>无需 Xcode、Node 或 Python。安装在当前用户目录，无需管理员权限。</p>
+    <h3>1. 确认 Mac App</h3>
+    <p>先打开已经安装的知行待办，确认是希望接收内容的版本。没有 Mac App 的测试者，请向维护者领取当前测试版。连接组件不会下载或升级 Mac App。</p>
+    <h3>2. 解压并检查</h3>
+    <p>将下载的 ZIP 解压，保留整个文件夹。不要拆分或修改其中的 <code>ActionInboxBrowserCaptureHost.app</code>。在“终端”进入解压后的文件夹，例如下载目录：</p>
+    <pre><code>cd "$HOME/Downloads/actioninbox-mac-connector-0.3.1-arm64"</code></pre>
+    <p>先预览绑定。下面以 App 位于“应用程序”文件夹为例；如安装位置不同，请换成实际的完整路径，保留引号。</p>
+    <pre><code>./install.command --extension-id eclhkjpflbkafbgihlpmkbpcipcbiemo --app "/Applications/知行待办.app" --dry-run</code></pre>
+    <p>确认输出的 <code>applicationPath</code> 指向刚才打开的 App。检查成功后，去掉 <code>--dry-run</code> 执行安装：</p>
+    <pre><code>./install.command --extension-id eclhkjpflbkafbgihlpmkbpcipcbiemo --app "/Applications/知行待办.app"</code></pre>
+    <p>看到“连接组件已绑定知行待办”表示配置写入成功。安装器会校验签名、公证、芯片架构和 App 身份，备份已有配置，并保留已有的明确扩展绑定。</p>
+    <h3>3. 发送一条测试记录</h3>
+    <p>在受邀安装浏览器扩展后，开启“划词浮窗”，选中一句话，选择“写想法”，再点“发送到知行待办”。在 Mac App 核对原文、我的想法、网页标题与完整来源链接。</p>
+    <p>浏览器的“已发送”表示连接组件已接收并发起导入；以 Mac App 中实际出现的记录为最终结果。如果提示“发送结果未知”，先到 App 核对，避免重复发送。</p>
+  </section>
+  <section class="card" aria-labelledby="help-title">
+    <h2 id="help-title">遇到问题</h2>
+    <ul>
+      <li><strong>仍打开旧版 App：</strong>用希望接收内容的 App 完整路径重新执行安装命令。绑定路径失效时会报错，不会改为打开其他副本。</li>
+      <li><strong>浏览器找不到组件：</strong>确认已运行安装命令，使用 Google Chrome，并核对扩展 ID 为 <code>eclhkjpflbkafbgihlpmkbpcipcbiemo</code>。关闭后重新打开扩展侧栏再试。</li>
+      <li><strong>签名、公证、架构或系统安全提示失败：</strong>停止安装并把错误文字发给维护者；不要关闭系统安全保护或移除隔离标记。</li>
+      <li><strong>保存失败：</strong>原文与想法仍保存在浏览器的“历史 → 摘录”中。连接恢复后可重试；发送结果未知时先核对 Mac。</li>
+      <li><strong>想停止连接：</strong>在 Finder 的“前往文件夹”打开 <code>~/Library/Application Support/Google/Chrome/NativeMessagingHosts/</code>，移除 <code>com.weiyawu.actioninbox.browser_capture.json</code>，然后重启 Chrome。这只断开浏览器与 Mac 的连接，保留 App 数据和浏览器摘录。</li>
+    </ul>
+    <p>只有点击发送时，内容才交给本机连接组件。安装组件不需要 AI 访问口令；AI 服务目前暂缓开放。</p>
+  </section>
+  <footer>更新于 2026-10-13 · <a href="browser-extension-privacy.html">浏览器扩展隐私说明</a> · <a href="mailto:1908716221@qq.com">联系维护者</a></footer>
+</main></body></html>
